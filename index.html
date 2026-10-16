@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bodas LeBlanc</title>
+
+<style>
+:root{
+--primary:#d1b280;
+--dark:#232323;
+--light:#f8f5f0;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family: 'Georgia', serif;
+background:var(--light);
+color:var(--dark);
+line-height:1.6;
+}
+
+section{
+padding:80px 20px;
+}
+
+.hero{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+background:#faf7f2;
+}
+
+.hero h1{
+font-size:4rem;
+margin-bottom:10px;
+}
+
+.hero h2{
+font-weight:normal;
+margin-bottom:30px;
+}
+
+.btn{
+display:inline-block;
+padding:15px 30px;
+background:var(--dark);
+color:white;
+text-decoration:none;
+border-radius:50px;
+}
+
+.countdown{
+text-align:center;
+font-size:2rem;
+color:var(--primary);
+}
+
+.story{
+max-width:900px;
+margin:auto;
+text-align:center;
+}
+
+.timeline{
+max-width:700px;
+margin:auto;
+}
+
+.event{
+padding:20px;
+margin:20px 0;
+background:white;
+border-radius:15px;
+}
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:15px;
+}
+
+.gallery img{
+width:100%;
+height:300px;
+object-fit:cover;
+border-radius:15px;
+}
+
+.rsvp{
+max-width:700px;
+margin:auto;
+}
+
+form{
+display:flex;
+flex-direction:column;
+gap:15px;
+}
+
+input,
+select,
+textarea,
+button{
+padding:15px;
+font-size:1rem;
+border:1px solid #ddd;
+border-radius:10px;
+}
+
+button{
+background:var(--dark);
+color:white;
+cursor:pointer;
+}
+
+footer{
+text-align:center;
+padding:40px;
+}
+</style>
+</head>
+<body>
+
+<section class="hero">
+
+<h1 id="couple">Carlos & Marta</h1>
+
+<h2 id="dateText">12 Junio 2027</h2>
+
+#historia
+Descubrir nuestra historia
+</a>
+
+</section>
+
+<section>
+
+<h2 style="text-align:center;">Cuenta atrás</h2>
+
+<div class="countdown" id="countdown"></div>
+
+</section>
+
+<section id="historia">
+
+<div class="story">
+
+<h2>Nuestra Historia</h2>
+
+<p>
+Todo comenzó con una conversación que ninguno de los dos esperaba.
+Desde aquel momento empezamos a construir una historia llena de viajes,
+risas y momentos inolvidables.
+</p>
+
+</div>
+
+</section>
+
+<section>
+
+<h2 style="text-align:center;">Agenda</h2>
+
+<div class="timeline">
+
+<div class="event">
+<h3>Ceremonia</h3>
+<p>17:00</p>
+</div>
+
+<div class="event">
+<h3>Cóctel</h3>
+<p>18:30</p>
+</div>
+
+<div class="event">
+<h3>Cena</h3>
+<p>20:00</p>
+</div>
+
+<div class="event">
+<h3>Fiesta</h3>
+<p>22:00</p>
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<h2 style="text-align:center;">Ubicación</h2>
+
+<div style="max-width:900px;margin:auto">
+
+https://maps.google.com/maps?q=barcelona&t=&z=13&ie=UTF8&iwloc=&output=embed
+</iframe>
+
+</div>
+
+</section>
+
+<section>
+
+<h2 style="text-align:center;">Galería</h2>
+
+<div class="gallery">
+
+https://picsum.photos/600/600?1
+https://picsum.photos/600/600?2
+https://picsum.photos/600/600?3
+https://picsum.photos/600/600?4
+
+</div>
+
+</section>
+
+<section>
+
+<div class="rsvp">
+
+<h2 style="text-align:center;">Confirmación de asistencia</h2>
+
+<form>
+
+<input type="text" placeholder="Nombre completo">
+
+<select>
+<option>¿Asistirás?</option>
+<option>Sí</option>
+<option>No</option>
+</select>
+
+<select>
+<option>Menú</option>
+<option>Normal</option>
+<option>Vegetariano</option>
+<option>Vegano</option>
+</select>
+
+<textarea placeholder="Alergias o comentarios"></textarea>
+
+<button>
+Confirmar asistencia
+</button>
+
+</form>
+
+</div>
+
+</section>
+
+<footer>
+
+Bodas LeBlanc © 2026
+
+</footer>
+
+<script>
+
+const weddingDate = new Date("2027-06-12T17:00:00");
+
+function updateCountdown(){
+
+const now = new Date();
+
+const diff = weddingDate - now;
+
+const days = Math.floor(diff / (1000*60*60*24));
+const hours = Math.floor((diff/(1000*60*60)) % 24);
+const minutes = Math.floor((diff/(1000*60)) % 60);
+
+document.getElementById("countdown").innerHTML =
+`${days} días · ${hours} horas · ${minutes} minutos`;
+
+}
+
+setInterval(updateCountdown,1000);
+
+updateCountdown();
+
+</script>
+
+</body>
+</html>
